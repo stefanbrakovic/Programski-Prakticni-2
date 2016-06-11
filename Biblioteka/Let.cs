@@ -71,5 +71,35 @@ namespace Biblioteka
             return string.Format("Datum {0}, inicijali {1}", datum, inicijali);
         }
 
+        public void DodajPutnika(Putnik p)
+        {
+            if (spisakPutnika.Count<=100)
+            {
+                foreach (Putnik putnik in spisakPutnika)
+                {
+                    if (putnik.Equals(p))
+                    {
+                        spisakPutnika.Remove(putnik);
+                        DodajPutnika(p);
+                        break;
+                    }
+                    if (putnik.Sediste == p.Sediste)
+                    {
+                        Console.WriteLine("Sediste je vec zauzeto!");
+                        return;
+                    }
+
+                }
+                
+                spisakPutnika.AddLast(p);
+                return;
+            }
+            else
+            {
+                Console.WriteLine("let je pun!");
+                return;   
+            }
+        }
+
     }
 }

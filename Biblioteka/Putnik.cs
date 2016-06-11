@@ -8,9 +8,9 @@ namespace Biblioteka
 {
     public class Putnik : Osoba
     {
-        private int sediste;
+        private Sediste sediste;
 
-        public int Sediste
+        public Sediste Sediste
         {
             get { return sediste; }
             set { sediste = value; }
@@ -18,10 +18,10 @@ namespace Biblioteka
 
         public Putnik()
         {
-            sediste = 0;
+            sediste = null;
         }
 
-        public Putnik(string ime, string prezime, int sediste) : base(ime, prezime)
+        public Putnik(string ime, string prezime, Sediste sediste) : base(ime, prezime)
         {
             this.sediste = sediste;
         }
